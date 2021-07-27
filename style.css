@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+html {
+    margin: 0 0 0 0;
+}
+
+body {
+    margin-top: 0;
+    background-image: url(./img/money.jpg);
+    background-position: center;
+}
+
+header {
+    color: ghostwhite;
+    font-size: 30px;
+    font-weight: bolder;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 1px;
+    text-align: center;
+    line-height: 60px;
+    margin: 20px;
+    background:radial-gradient(rgb(243, 207, 2), rgb(243, 80, 4));
+    border-radius: 10px;
+    height: 60px;
+}
+
+.env {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+.caixa {
+    padding: 0 10px 0 10px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#small {
+    font-size: 12px;
+    font-style: italic;
+    font-weight: lighter;
+    color: #bbb;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    display: inline-flex;
+    padding: 0 0 0 0;
+    height: 40px;
+    line-height: 20px;
+    
+    
+}
+
+.mini {
+    display: inline-flex;
+    background-color: rgba(0, 0, 0, 0.3);
+    margin: 0 10px 0 10px;
+    padding-right: 10px;
+    border-radius: 7px;
+}
+
+.tit {
+    margin-left: 150px;
+}
+
+.peq {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+#card0, #card1, #card2, #card3, #card4, #card5 {
+    color: darkgrey;
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    margin: 10px;
+    width: 25em;
+    display: inline-flex;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px black;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.coin {
+    margin-right: 15px;
+}
+
+span {
+    text-decoration: underline;
+    font-style: italic;
+}
+
+footer {
+    height: 40px;
+    line-height: 40px;
+    margin-top: 20px;
+}
+
+#foot {
+    height: 40px;
+    display: flex;
+    float: left;
+    line-height: 40px;
+}
+
+#rodape {
+    width: 40px;
+}
+
+#footer {
+    color: darkgrey;
+    font-family: 'Dancing Script', cursive;
+    font-size: 30px;
+    margin-left: 10px;
+    font-style: italic;
+}
+
+#reg {
+    text-align: center;
+    color: darkgrey;
+    margin: 0 0 0 0;
+
+}

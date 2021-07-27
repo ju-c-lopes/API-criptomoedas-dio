@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>CoinMarketCap</title>
+</head>
+<body>
+    <header>
+        <p style="margin:20px">COINS THROUGH THE NET</p>
+    </header>
+
+    <div class="container-fluid topo">
+        <h1 class="tit">4 FIRST COINS</h1>
+        <div id="small" class="container-fluid">
+            
+        </div>
+    </div>
+
+    <div class="container-fluid text-center margin env">
+        <div id="disp1" class="row caixa container-fluid"></div>
+        <div id="disp2" class="row caixa container-fluid"></div>
+    </div>
+    <footer class="container-fluid">
+        <div class="row">
+            <div id="foot" class="media col-4">
+                <img src="img/jjcc.png" alt="logo" id="rodape">
+                <p id="footer">JCLops</p>
+            </div>
+            <div id="reg" class="media col-4">
+                <p>&reg2021</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        // My api key
+        var apiKey = {
+            key: "a7937a84-313e-40e3-83e5-b100e8ee972f"
+        }
+        // GET Fetch Requisition
+        let show = () => { fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?CMC_PRO_API_KEY=' + apiKey.key)
+            .then((response) => {
+                if(!response.ok) throw new Error('Erro ao executar a requisição, status ' + response.status);
+                return response.json();
+            })
+            .then((api) => {
+                var s = '&nbsp;';
+                var txt = '';
+                for (let i = 0; i < 4; i++){
+                    txt = txt + `
+                        <div class="mini col-lg-2 col-md-2 col-sm-2">
+                            <img src="./img/coin3.png" alt="coin" class="align-self-center peq" width="20" height="16" />
+                            <p style="text-align: left; margin-left: -10px;">
+                                ${api.data[i].name}<br />
+                                ${api.data[i].symbol}</p>
+                        </div>`;
+                }
+                document.getElementById('small').innerHTML = txt;
+
+                for (let i = 0; i < 2; i++){
+                    var text = "";
+                    for(let j = (i * 3); j < 3 * (i + 1); j++){
+                        let n = Math.floor(Math.random() * api.data.length)
+                        let img = Math.floor(Math.random() * 4) + 1
+                        text = text + `
+
+                        <div id="card${j}" class="media col-lg-4 col-md-4 col-sm-4">
+                            <img src="./img/coin${img}.png" class="coin align-self-center mr-3" alt="coin" width="80" height="60" />
+                            <div class="media-body">
+                                <h5 class="mt-2">${api.data[n].name}</h5>
+                                <p>${api.data[n].symbol}<br />
+                                    <span>SINCE:</span>${s+s+s+s}${api.data[n].first_historical_data.split('T')[0]}</p>
+                            </div>
+                        </div>`;
+                    }
+                    document.getElementById(`disp${i + 1}`).innerHTML = text;
+                }                
+            })
+            .catch((error) => {
+                console.error(error);
+            })};
+            show();
+            window.setInterval(show, 10000);
+    </script>
+</body>
+</html>
